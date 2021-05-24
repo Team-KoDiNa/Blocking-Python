@@ -60,3 +60,5 @@ if __name__ == '__main__':
         json_data_read(hash = hashs , data = text)
     except KeyError:
         json_data_write(hash = hashs , data = text, nums = 1)
+
+#작성완료
