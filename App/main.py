@@ -1,9 +1,4 @@
-import hashlib
-import string
-import random
-import json
-import time
-import os
+import hashlib, string, random, json, time, os
 from collections import  OrderedDict
 
 def random_string_data():
@@ -23,7 +18,7 @@ def add_block(data):
     return myHash
 
 def json_data_read(hash, data):
-    with open('data/block.json', 'r') as f:
+    with open('../data/block.json', 'r') as f:
         read = json.load(f)
     num = int(json.dumps(read["block"]["num"]))
     num += 1
@@ -36,7 +31,7 @@ def json_data_write(hash,data,nums):
     datas = {"hash" : hash,"text" : data ,"num" : nums, "time" : times}
     file_data["block"] = datas
 
-    with open("data/block.json", "a", encoding ="utf-8", newline ="") as datas:
+    with open("../data/block.json", "a", encoding ="utf-8", newline ="") as datas:
         json.dump(file_data, datas, indent = 4)
 
 def add_json_make(hash,data):
@@ -60,5 +55,3 @@ if __name__ == '__main__':
         json_data_read(hash = hashs , data = text)
     except KeyError:
         json_data_write(hash = hashs , data = text, nums = 1)
-
-#작성완료
